@@ -1,5 +1,6 @@
 const sections = [...document.querySelectorAll("main section[id]")];
-const navLinks = [...document.querySelectorAll("a[href^='#']")].filter((link) => link.hash);
+const navLinks = [...document.querySelectorAll("[href^='#']")].filter((link) => link.hash);
+const contactForm = document.querySelector(".contact-form");
 
 const setActive = (id) => {
   navLinks.forEach((link) => {
@@ -9,12 +10,17 @@ const setActive = (id) => {
 
 const currentSectionId = () => {
   const hashId = window.location.hash.slice(1);
-  return hashId && document.getElementById(hashId) ? hashId : sections[0]?.id;
+
+  if (hashId && document.getElementById(hashId)) {
+    return hashId;
+  }
+
+  return sections[0]?.id;
 };
 
 const scrollToHash = () => {
-  const id = window.location.hash.slice(1);
-  const target = id ? document.getElementById(id) : null;
+  const hashId = window.location.hash.slice(1);
+  const target = hashId ? document.getElementById(hashId) : null;
 
   if (target) {
     target.scrollIntoView({ block: "start" });
@@ -47,3 +53,62 @@ window.addEventListener("hashchange", () => {
 });
 
 window.addEventListener("load", scrollToHash);
+
+document.querySelectorAll("a[href^='#']").forEach((link) => {
+  link.addEventListener("click", () => {
+    const id = link.getAttribute("href").slice(1);
+    if (id) {
+      setActive(id);
+    }
+  });
+});
+
+if (contactForm) {
+  const status = contactForm.querySelector(".form-status");
+  const submitButton = contactForm.querySelector("[type='submit']");
+  const defaultButtonText = submitButton?.textContent || "Send message";
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (status) {
+      status.textContent = "Sending your message...";
+      status.className = "form-status";
+    }
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+    }
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      contactForm.reset();
+      if (status) {
+        status.textContent = "Thanks, your message has been sent. I will get back to you soon.";
+        status.className = "form-status success";
+      }
+    } catch {
+      if (status) {
+        status.textContent = "Something went wrong. Please email hello@akshaygupta.me or try again.";
+        status.className = "form-status error";
+      }
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = defaultButtonText;
+      }
+    }
+  });
+}
