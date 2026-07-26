@@ -1,5 +1,5 @@
 const sections = [...document.querySelectorAll("main section[id]")];
-const navLinks = [...document.querySelectorAll("[href^='#']")].filter((link) => link.hash);
+const navLinks = [...document.querySelectorAll("a[href^='#']")].filter((link) => link.hash);
 
 const setActive = (id) => {
   navLinks.forEach((link) => {
@@ -9,17 +9,12 @@ const setActive = (id) => {
 
 const currentSectionId = () => {
   const hashId = window.location.hash.slice(1);
-
-  if (hashId && document.getElementById(hashId)) {
-    return hashId;
-  }
-
-  return sections[0]?.id;
+  return hashId && document.getElementById(hashId) ? hashId : sections[0]?.id;
 };
 
 const scrollToHash = () => {
-  const hashId = window.location.hash.slice(1);
-  const target = hashId ? document.getElementById(hashId) : null;
+  const id = window.location.hash.slice(1);
+  const target = id ? document.getElementById(id) : null;
 
   if (target) {
     target.scrollIntoView({ block: "start" });
@@ -52,12 +47,3 @@ window.addEventListener("hashchange", () => {
 });
 
 window.addEventListener("load", scrollToHash);
-
-document.querySelectorAll("a[href^='#']").forEach((link) => {
-  link.addEventListener("click", () => {
-    const id = link.getAttribute("href").slice(1);
-    if (id) {
-      setActive(id);
-    }
-  });
-});
