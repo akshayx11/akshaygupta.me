@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akshay Kumar Gupta | Senior Software Engineer</title>
+<meta name="description" content="Software Engineer III with 8+ years building Java, Spring Boot, Open Banking (FDX), Kafka, AWS and AI engineering platforms.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔶</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root {
+  --ink: #0c0a08;
+  --text: #fff6e8;
+  --mute: #d3c5ae;
+  --amber: #ffb04a;
+  --amber-dark: #b86b10;
+  --glow: #ffd9a0;
+  --glass-bg: linear-gradient(145deg, rgba(46,34,22,.82), rgba(14,11,8,.92));
+  --glass-border: rgba(255, 205, 140, 0.28);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*, *:before, *:after { box-sizing: inherit; }
+html { scroll-behavior: smooth; scroll-padding-top: env(safe-area-inset-top, 0px); }
+body { margin: 0; background: var(--ink); color: var(--text); font: 400 18px/1.65 var(--sans); overflow-x: hidden; transition: background 0.4s ease; }
+body.nogl { background: radial-gradient(ellipse at 70% 10%, #3a2710, var(--ink) 60%); }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+#gl { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.grain { position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.08; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"); }
+main, footer { position: relative; z-index: 2; }
+.skip { position: fixed; left: 12px; top: -60px; z-index: 60; background: var(--amber); color: var(--ink); padding: 10px 16px; border-radius: 8px; font-weight: 600; text-decoration: none; }
+.skip:focus { top: calc(10px + env(safe-area-inset-top, 0px)); }
+.bar { position: fixed; left: 0; top: 0; height: 3px; width: 100%; background: linear-gradient(90deg, #b86b10, var(--amber), var(--glow)); transform-origin: 0 50%; transform: scaleX(0); z-index: 50; box-shadow: 0 0 12px var(--amber); }
+
+/* Header & Navigation */
+header {
+  position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%);
+  width: min(1120px, calc(100% - 24px)); z-index: 40; display: flex; align-items: center; gap: 10px;
+  padding: 7px 10px; border-radius: 999px; background: rgba(16,12,9,.75);
+  backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid rgba(255,176,74,.3); box-shadow: 0 12px 40px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.1);
+}
+.brand { display: flex; align-items: center; gap: 10px; margin-right: auto; font: 600 18px var(--serif); text-decoration: none; }
+.mk { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffd9a0, #ffb04a 55%, #b86b10); color: #1a1006; font: italic 600 21px var(--serif); box-shadow: 0 0 18px rgba(255,176,74,.45); }
+nav { display: flex; gap: 4px; }
+nav a { padding: 8px 14px; border-radius: 999px; text-decoration: none; color: #e9dcc6; font-size: 15px; font-weight: 500; transition: all .2s; }
+nav a:hover { color: #fff; background: rgba(255,176,74,.15); }
+
+/* Mode Switcher Button */
+.mode-toggle {
+  display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 999px;
+  border: 1px solid rgba(255,176,74,.45); background: rgba(255,176,74,.12); color: var(--amber);
+  font: 600 13.5px var(--sans); cursor: pointer; transition: all .25s ease; white-space: nowrap;
+}
+.mode-toggle:hover { background: var(--amber); color: #1a1006; border-color: var(--amber); box-shadow: 0 0 16px rgba(255,176,74,.4); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border: 1.5px solid var(--amber); border-radius: 999px; text-decoration: none; font: 600 16px var(--sans); color: var(--amber); background: rgba(12,10,8,.4); cursor: pointer; transition: .2s; }
+.btn.fill { background: linear-gradient(180deg,#ffc56f,#ffa028); color: #1a1006; box-shadow: 0 6px 0 #a8620d, 0 14px 30px rgba(255,160,40,.35); }
+.btn.fill:hover { transform: translateY(2px); box-shadow: 0 4px 0 #a8620d, 0 10px 24px rgba(255,160,40,.35); }
+.btn:hover { background: var(--glow); color: #1a1006; border-color: var(--glow); }
+header .btn.nav-btn { min-height: 38px; padding: 7px 18px; font-size: 14.5px; background: var(--amber); color: #1a1006; }
+
+/* Main Typography & Layout */
+h1, h2, h3 { font-family: var(--serif); margin: 0; line-height: 1.08; }
+.wrap { padding: 0 clamp(20px, 6vw, 90px); max-width: 1280px; margin: 0 auto; }
+.hero { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding-top: 90px; }
+.eyebrow { font: 500 13px var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--amber); margin-bottom: 22px; display: flex; align-items: center; gap: 8px; }
+.eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: #34d399; box-shadow: 0 0 10px #34d399; }
+h1 { font-size: clamp(38px, 7.2vw, 94px); font-weight: 600; letter-spacing: -.025em; max-width: 880px; background: linear-gradient(180deg,#fff9ee 25%,#ffd9a0); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 6px 30px rgba(0,0,0,.7)); }
+.lead { max-width: 620px; font-size: clamp(17px, 2vw, 20px); color: #f4e9d6; margin: 24px 0 30px; text-shadow: 0 2px 16px #000; }
+.row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.stats { display: flex; gap: clamp(20px, 5vw, 60px); margin-top: 44px; padding-top: 24px; border-top: 1px solid rgba(255,176,74,.35); flex-wrap: wrap; max-width: 720px; }
+.stats b { display: block; font: 600 clamp(36px, 5vw, 60px)/1 var(--serif); color: var(--amber); text-shadow: 0 0 30px rgba(255,176,74,.45); }
+.stats span { font-size: 14.5px; display: block; max-width: 150px; line-height: 1.35; color: #f4e9d6; margin-top: 6px; }
+.cue { margin-top: 40px; font: 500 12px var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--mute); transition: opacity .3s; }
+
+/* Extruded Glass Slab Cards */
+.rv { opacity: 0; transform: translateY(60px) rotateX(12deg); transition: opacity 1s, transform 1s cubic-bezier(.2,.7,.2,1); perspective: 1000px; }
+.rv.in { opacity: 1; transform: none; }
+.glass {
+  position: relative; border-radius: 22px; padding: clamp(24px, 3.4vw, 40px); background: var(--glass-bg);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid var(--glass-border); transition: transform .25s ease-out; will-change: transform;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -1px 0 rgba(0,0,0,.6), 1px 1px 0 #3d2a12, 2px 2px 0 #35240f, 3px 3px 0 #2d1e0c, 4px 4px 0 #261909, 5px 5px 0 #1f1507, 10px 28px 60px rgba(0,0,0,.75), 0 0 70px rgba(255,176,74,.07);
+}
+.glass:before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: radial-gradient(420px circle at var(--mx,30%) var(--my,0%), rgba(255,226,180,.2), transparent 60%); }
+.proj { min-height: 115vh; display: flex; align-items: center; }
+.proj .wrap { width: 100%; display: flex; }
+.proj.r .wrap { justify-content: flex-end; }
+.proj .glass { width: min(580px, 100%); }
+.num { font: italic 300 clamp(70px, 10vw, 130px)/.8 var(--serif); color: transparent; -webkit-text-stroke: 1.5px var(--amber); margin-bottom: 10px; }
+.cat { font: 500 12.5px var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--amber); }
+.proj h2 { font-size: clamp(30px, 4vw, 48px); font-weight: 600; margin: 8px 0 14px; }
+.proj p { margin: 0 0 14px; color: #f4e9d6; }
+.res { padding: 12px 16px; border-left: 3px solid var(--amber); background: rgba(255,176,74,.09); border-radius: 0 10px 10px 0; color: #fff; font-weight: 500; }
+.tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.tags span { font: 500 12.5px var(--mono); padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,176,74,.45); color: var(--glow); background: rgba(0,0,0,.25); }
+
+section.s { padding: clamp(70px, 10vw, 130px) 0; }
+h2.t { font-size: clamp(32px, 5vw, 60px); font-weight: 600; max-width: 800px; margin-bottom: 46px; text-wrap: balance; }
+h2.t:before { content: ""; display: block; width: 56px; height: 3px; background: var(--amber); border-radius: 2px; margin-bottom: 22px; box-shadow: 0 0 16px var(--amber); }
+.g2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 30px; }
+.g3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 26px; }
+.glass h3 { font-size: 25px; font-weight: 600; margin-bottom: 4px; }
+.when { font: 500 12.5px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--amber); margin: 2px 0 14px; }
+.co { color: var(--glow); margin: 0; font-weight: 500; }
+.glass ul { margin: 0; padding-left: 18px; }
+.glass li { margin-bottom: 8px; color: #f4e9d6; font-size: 16.5px; }
+.glass li::marker { color: var(--amber); }
+.glass.sm h3 { color: var(--amber); font-size: 22px; }
+.glass.sm p { margin: 0; color: #fff1dc; }
+.glass.sm em { display: block; margin-top: 8px; font: 500 13.5px var(--mono); color: var(--mute); font-style: normal; }
+
+#contact { text-align: center; min-height: 100vh; display: flex; align-items: center; }
+#contact h2 { font-size: clamp(34px, 5.6vw, 68px); font-weight: 600; max-width: 900px; margin: 0 auto 20px; text-wrap: balance; text-shadow: 0 4px 30px #000; }
+.links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 28px 0; }
+form { display: grid; gap: 14px; text-align: left; max-width: 560px; margin: 36px auto 0; }
+label span { display: block; font: 500 12.5px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--glow); margin-bottom: 4px; }
+input, textarea { width: 100%; padding: 13px 14px; background: rgba(0,0,0,.45); border: 1px solid #5a4630; border-radius: 12px; color: var(--text); font: inherit; font-size: 17px; }
+input:focus, textarea:focus { border-color: var(--amber); outline: none; box-shadow: 0 0 0 3px rgba(255,176,74,.2); }
+footer { padding: 30px; text-align: center; color: var(--mute); font-size: 15px; }
+
+@media(max-width: 760px) {
+  nav a:not(.keep) { display: none; }
+  .brand span:last-child { display: none; }
+  .proj { min-height: 100vh; }
+  .proj .glass { background: linear-gradient(145deg, rgba(46,34,22,.9), rgba(14,11,8,.93)); }
+  .proj.r .wrap { justify-content: flex-start; }
+  .hero { padding-top: 120px; justify-content: flex-end; padding-bottom: 50px; }
+  h1 { font-size: clamp(36px, 10.5vw, 52px); }
+}
+@media(prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rv { opacity: 1; transform: none; transition: none; }
+}
+
+.proj .glass { background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; padding: 0; border-radius: 0; }
+.proj .glass:before { display: none; }
+.pc { width: min(600px, 100%); padding: 34px 44px 34px 0; background: linear-gradient(90deg, rgba(10,8,6,.82) 0%, rgba(10,8,6,.6) 72%, rgba(10,8,6,0)); opacity: 0; }
+.proj.r .pc { padding: 34px 0 34px 44px; background: linear-gradient(270deg, rgba(10,8,6,.82) 0%, rgba(10,8,6,.6) 72%, rgba(10,8,6,0)); }
+@media(max-width: 760px) { .pc, .proj.r .pc { padding: 24px 18px; border-radius: 16px; background: rgba(10,8,6,.84); } }
+@media(prefers-reduced-motion: reduce) { .pc { opacity: 1 !important; } }
+
+/* =========================================================
+   LITE VERSION / FAST MODE OVERRIDES
+   ========================================================= */
+body.lite-mode {
+  background: radial-gradient(ellipse at 50% 15%, #24180c 0%, #0c0a08 75%) !important;
+}
+body.lite-mode #gl,
+body.lite-mode .grain {
+  display: none !important;
+}
+body.lite-mode .cue {
+  display: none !important;
+}
+body.lite-mode .rv {
+  opacity: 1 !important;
+  transform: none !important;
+}
+body.lite-mode .proj {
+  min-height: auto !important;
+  padding: clamp(36px, 6vw, 70px) 0 !important;
+}
+body.lite-mode .proj .wrap {
+  justify-content: center !important;
+}
+body.lite-mode .pc {
+  opacity: 1 !important;
+  width: min(720px, 100%) !important;
+  padding: 32px 36px !important;
+  border-radius: 20px !important;
+  background: linear-gradient(145deg, rgba(38, 27, 16, 0.88), rgba(16, 12, 9, 0.95)) !important;
+  border: 1px solid rgba(255, 176, 74, 0.35) !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65) !important;
+}
+body.lite-mode .num {
+  font-size: clamp(42px, 6vw, 68px) !important;
+  margin-bottom: 4px !important;
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to projects</a>
+<div class="bar" id="bar"></div>
+
+<header>
+  <a class="brand" href="#top" aria-label="Akshay Gupta home">
+    <span class="mk">A</span>
+    <span>Akshay Gupta</span>
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="#work">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Toolkit</a>
+    <a class="keep" href="#contact">Contact</a>
+  </nav>
+  <button id="modeToggle" class="mode-toggle" aria-label="Toggle Lite / 3D Mode">
+    <span class="mode-icon">⚡</span>
+    <span class="mode-txt">Lite Version</span>
+  </button>
+  <a class="btn nav-btn" href="https://akshaygupta.me/assets/Akshay-Kumar-Gupta-Resume.pdf" download>Resume</a>
+</header>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="grain"></div>
+
+<main id="top">
+  <section class="hero wrap">
+    <div class="eyebrow"><span class="dot"></span> Software Engineer III · JPMorgan Chase & Co.</div>
+    <h1>Senior Software Engineer building Open Banking and AI engineering platforms.</h1>
+    <p class="lead">I design scalable full-stack applications and enterprise backends in Java, Spring Boot, PostgreSQL, Kafka and AWS. Scroll to explore the interactive showcase.</p>
+    <div class="row">
+      <a class="btn fill" href="#contact">Start a conversation</a>
+      <a class="btn" href="#work">See the projects</a>
+    </div>
+    <div class="stats">
+      <div><b>8+</b><span>years building enterprise software</span></div>
+      <div><b>60%</b><span>development effort reduced with DevKit</span></div>
+      <div><b>10M+</b><span>learners reached on Edulastic</span></div>
+    </div>
+    <div class="cue">↓ Scroll to move forward</div>
+  </section>
+
+  <div id="work"></div>
+  <section class="proj"><div class="wrap"><div class="pc"><div class="glass"><div class="num">01</div><div class="cat">Open Banking</div><h2>Open Banking Platform (FDX)</h2><p>Designed and developed secure Open Banking services implementing the Financial Data Exchange standard: FDX Export APIs, consent management, and event-driven microservices for customer-authorized financial data sharing.</p><div class="res">Standardized Liquibase and Spinnaker database rollback strategy for reliable schema deployments and recovery.</div><div class="tags"><span>Java</span><span>Spring Boot</span><span>Kafka</span><span>PostgreSQL</span><span>AWS</span><span>Liquibase</span><span>Spinnaker</span></div></div></div></div></section>
+  <section class="proj r"><div class="wrap"><div class="pc"><div class="glass"><div class="num">02</div><div class="cat">AI engineering platform</div><h2>DevKit</h2><p>AI-powered Project Development Lifecycle (PDLC) platform integrating repositories, Jira, Confluence, and Bitbucket via MCP for context retrieval and SDLC workflow automation.</p><div class="res">About 60% development effort reduction across a 20-member team.</div><div class="tags"><span>LLMs</span><span>AI agents</span><span>MCP</span><span>RAG</span><span>Context Engine</span></div></div></div></div></section>
+  <section class="proj"><div class="wrap"><div class="pc"><div class="glass"><div class="num">03</div><div class="cat">Cloud management</div><h2>Lumen Cloud Application Manager</h2><p>Orchestrated and automated infrastructure, application and service delivery across AWS, GCP, Azure and Lumen Cloud.</p><div class="res">30% deployment efficiency improvement through automation.</div><div class="tags"><span>Java</span><span>Python</span><span>MongoDB</span><span>AngularJS</span><span>AWS</span><span>GCP</span></div></div></div></div></section>
+  <section class="proj r"><div class="wrap"><div class="pc"><div class="glass"><div class="num">04</div><div class="cat">Learning platform</div><h2>Edulastic LMS</h2><p>Feature development, bug fixes and production support for a large-scale learning management system.</p><div class="res">Serving over 10 million users globally.</div><div class="tags"><span>Node.js</span><span>Java</span><span>MongoDB</span><span>MySQL</span><span>JavaScript</span></div></div></div></div></section>
+
+  <section class="s wrap" id="experience">
+    <h2 class="t">Engineering systems with high trust and high scale.</h2>
+    <div class="g2">
+      <div class="rv"><div class="glass tilt"><h3>Software Engineer III</h3><p class="co">JPMorgan Chase &amp; Co.</p><div class="when">April 2025 to present</div><ul><li>Leading backend engineering initiatives for the India team with Product Owners, Project Leads, and global engineering teams.</li><li>Designing and developing Open Banking services implementing the FDX standard on Java, Spring Boot, Kafka, PostgreSQL, and AWS.</li><li>Defined and implemented an enterprise database rollback strategy with Liquibase and Spinnaker for schema migrations.</li><li>Architected and led DevKit, an AI engineering platform using LLMs, AI agents, and MCP.</li></ul></div></div>
+      <div class="rv"><div class="glass tilt"><h3>Software Engineer II</h3><p class="co">McKinsey &amp; Company</p><div class="when">August 2022 to December 2024</div><ul><li>Delivered enterprise apps across healthcare, pharma, fintech and AI with Java, Spring Boot, Python, Node.js, React.js, Kafka, Redis and AWS.</li><li>Led a 10+ engineer backend team for a global pharmaceutical client.</li><li>Built GenAI applications with OpenAI, LangChain, vector databases and RAG.</li><li>Built ELK Stack solutions and Kibana plugins for observability and operations.</li></ul></div></div>
+      <div class="rv"><div class="glass tilt"><h3>Software Development Consultant I</h3><p class="co">Lumen Technologies</p><div class="when">September 2020 to August 2022</div><ul><li>Built backend services for Cloud Application Manager with Java, Python, MongoDB and AngularJS.</li><li>Integrated AWS, Azure, Google Cloud Platform and Lumen Cloud into cloud management features.</li><li>Shipped features, fixed production issues and improved performance.</li></ul></div></div>
+      <div class="rv"><div class="glass tilt"><h3>Software Engineer</h3><p class="co">Snapwiz Edutec India Pvt. Ltd.</p><div class="when">March 2018 to September 2020</div><ul><li>Built backend and frontend features for Edulastic with Node.js, Java, MongoDB, MySQL, JavaScript, HTML and CSS.</li><li>Owned features from implementation through testing, deployment and production support.</li></ul></div></div>
+    </div>
+  </section>
+
+  <section class="s wrap" id="skills">
+    <h2 class="t">Full-stack, AI-aware, cloud-ready.</h2>
+    <div class="g3">
+      <div class="rv"><div class="glass sm tilt"><h3>Languages</h3><p>Java, Python, JavaScript, Node.js, HTML5, CSS3</p></div></div>
+      <div class="rv"><div class="glass sm tilt"><h3>AI Technologies</h3><p>MCP (Model Context Protocol), LLMs, Agentic AI, RAG, Prompt Engineering, Vector Databases</p></div></div>
+      <div class="rv"><div class="glass sm tilt"><h3>Backend</h3><p>Spring Boot, Hibernate, Kafka, REST APIs, Microservices</p></div></div>
+      <div class="rv"><div class="glass sm tilt"><h3>Frontend</h3><p>React, Next.js</p></div></div>
+      <div class="rv"><div class="glass sm tilt"><h3>Cloud &amp; DevOps</h3><p>AWS, Docker, Kubernetes, Terraform, Git, Bitbucket, Liquibase, Spinnaker</p></div></div>
+      <div class="rv"><div class="glass sm tilt"><h3>Databases</h3><p>PostgreSQL, MongoDB, MySQL, Redis, Pinecone, ChromaDB</p></div></div>
+      <div class="rv"><div class="glass sm tilt"><h3>Tools &amp; OS</h3><p>IntelliJ IDEA, VS Code, PyCharm, Jira, Confluence, Linux, macOS, Windows</p></div></div>
+    </div>
+    <h2 class="t" style="margin-top:110px" id="education">Computer science foundation, and still learning.</h2>
+    <div class="g3">
+      <div class="rv"><div class="glass sm tilt"><h3>M.Tech, Computer Science</h3><p>DIT University, Dehradun</p><em>2017 · 7.89 CGPA (78.9%)</em></div></div>
+      <div class="rv"><div class="glass sm tilt"><h3>B.Tech, Information Technology</h3><p>Dehradun Institute of Technology, Dehradun</p><em>2015 · 69.48%</em></div></div>
+      <div class="rv"><div class="glass sm tilt"><h3>Certifications &amp; Recognition</h3><p><a href="https://www.udemy.com/certificate/UC-9f537a83-40f4-48d7-8902-1953de99b2de/" target="_blank" rel="noopener" style="color:var(--glow); text-decoration:underline;">Python Certification (Udemy) ↗</a>, GenAI and Java (J2SE/J2EE) courses, and a company Spot Award for delivering quality software on time.</p></div></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="contact">
+    <div style="width:100%">
+      <h2>Let's build something dependable, useful, and a little smarter than yesterday.</h2>
+      <p class="lead" style="margin:0 auto">The door is open. Tell me what you're working on, or take the resume first.</p>
+      <div class="links">
+        <a class="btn fill" href="mailto:hello@akshaygupta.me">hello@akshaygupta.me</a>
+        <a class="btn" href="https://akshaygupta.me/assets/Akshay-Kumar-Gupta-Resume.pdf" download>Download resume</a>
+        <a class="btn" href="https://www.linkedin.com/in/akshayx11/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/akshayx11" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://goodsenpai.com/akshayguptame" target="_blank" rel="noopener">GoodSenpai</a>
+      </div>
+      <div class="rv" style="max-width:600px; margin:0 auto">
+        <div class="glass tilt">
+          <form action="https://formspree.io/f/xwvgaebe" method="POST" style="margin:0">
+            <label><span>Name</span><input name="name" autocomplete="name" required></label>
+            <label><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
+            <label><span>Message</span><textarea name="message" rows="4" required></textarea></label>
+            <input type="hidden" name="_subject" value="New message from akshaygupta.me">
+            <button class="btn fill" type="submit">Send message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>© 2026 Akshay Kumar Gupta</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)), reduce=matchMedia('(prefers-reduced-motion:reduce)').matches, mob=()=>innerWidth<760;
+
+// Mode Toggle Handler (Lite / 3D)
+const modeToggleBtn = document.getElementById('modeToggle');
+function setLiteMode(isLite) {
+  if (isLite) {
+    document.body.classList.add('lite-mode');
+    if (modeToggleBtn) modeToggleBtn.innerHTML = '<span class="mode-icon">✨</span> <span class="mode-txt">3D Mode</span>';
+    localStorage.setItem('pref-mode', 'lite');
+  } else {
+    document.body.classList.remove('lite-mode');
+    if (modeToggleBtn) modeToggleBtn.innerHTML = '<span class="mode-icon">⚡</span> <span class="mode-txt">Lite Version</span>';
+    localStorage.setItem('pref-mode', '3d');
+  }
+}
+if (modeToggleBtn) {
+  modeToggleBtn.addEventListener('click', () => {
+    const isLite = !document.body.classList.contains('lite-mode');
+    setLiteMode(isLite);
+  });
+}
+if (localStorage.getItem('pref-mode') === 'lite') {
+  setLiteMode(true);
+}
+
+// Reveal + Tilt
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+if(!reduce)document.querySelectorAll('.tilt').forEach(el=>{el.addEventListener('pointermove',e=>{if(e.pointerType==='touch')return;const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;el.style.transform='perspective(900px) rotateX('+((.5-y)*7)+'deg) rotateY('+((x-.5)*9)+'deg)';el.style.setProperty('--mx',x*100+'%');el.style.setProperty('--my',y*100+'%')});el.addEventListener('pointerleave',()=>el.style.transform='')});
+
+// Scroll mapping: camera dwells at each project
+let ys=[0,1],zs=[0,-9,-19,-29,-39,-53],y=0,my=0,mx=0;
+function measure(){const m=document.documentElement.scrollHeight-innerHeight,c=e=>{const r=e.getBoundingClientRect();return scrollY+r.top+r.height/2-innerHeight/2};ys=[0,...[...document.querySelectorAll('.proj')].map(c),m]}
+function camZ(v){for(let i=0;i<ys.length-1;i++)if(v<=ys[i+1]){const t=cl((v-ys[i])/(ys[i+1]-ys[i]||1));return zs[i]+(zs[i+1]-zs[i])*t*t*(3-2*t)}return zs[zs.length-1]}
+addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5},{passive:true});
+const pcs=[...document.querySelectorAll('.pc')];
+
+(function(){
+  const cv=document.getElementById('gl');
+  let R;
+  try{R=new THREE.WebGLRenderer({canvas:cv,antialias:true})}catch(e){document.body.classList.add('nogl');cv.remove();return}
+  R.setClearColor(0x0c0a08);const sc=new THREE.Scene();sc.fog=new THREE.FogExp2(0x0c0a08,.034);const cm=new THREE.PerspectiveCamera(55,1,.1,120);
+  sc.add(new THREE.AmbientLight(0x8a6238,1));const L=new THREE.PointLight(0xffb04a,2.6,34);cm.add(L);L.position.set(2,3,2);sc.add(cm);
+  const L2=new THREE.PointLight(0xfff0d0,1.2,40);L2.position.set(-3,-2,4);cm.add(L2);
+  
+  // Hero Core
+  const core=new THREE.Group();sc.add(core);
+  core.add(new THREE.Mesh(new THREE.IcosahedronGeometry(1.1,1),new THREE.MeshStandardMaterial({color:0xffb04a,emissive:0xff8a1f,emissiveIntensity:.85,roughness:.3,metalness:.5,flatShading:true})));
+  core.add(new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(1.7,1)),new THREE.LineBasicMaterial({color:0xffd9a0,transparent:true,opacity:.6})));
+  const orbs=[];[[2.6,.35],[3.1,-.55],[3.5,.95],[3.9,-.15]].forEach(([r,t],i)=>{const tl=new THREE.Group();tl.rotation.set(t*.7,0,t);core.add(tl);const sp=new THREE.Group();tl.add(sp);
+   const m=new THREE.Mesh(new THREE.BoxGeometry(.7,.7,.7),new THREE.MeshStandardMaterial({color:0x2a2018,metalness:.85,roughness:.28,emissive:0xff8a1f,emissiveIntensity:.1}));m.add(new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry),new THREE.LineBasicMaterial({color:0xffd9a0})));m.position.x=r;sp.add(m);
+   const ring=new THREE.Mesh(new THREE.RingGeometry(r-.012,r+.012,128),new THREE.MeshBasicMaterial({color:0xffb04a,transparent:true,opacity:.22,side:THREE.DoubleSide}));ring.rotation.x=Math.PI/2;tl.add(ring);orbs.push({sp,m,i})});
+
+  // Spheres
+  function tex(n,name){const c=document.createElement('canvas');c.width=1024;c.height=512;const g=c.getContext('2d'),gr=g.createLinearGradient(0,0,0,512);gr.addColorStop(0,'#3d2c1a');gr.addColorStop(1,'#0e0b08');g.fillStyle=gr;g.fillRect(0,0,1024,512);g.strokeStyle='rgba(255,176,74,.35)';g.lineWidth=2;for(let i=1;i<8;i++){g.beginPath();g.moveTo(0,i*64);g.lineTo(1024,i*64);g.stroke()}for(let i=0;i<16;i++){g.beginPath();g.moveTo(i*64,0);g.lineTo(i*64,512);g.stroke()}
+  g.textAlign='center';g.font='italic 300 260px Georgia,serif';g.strokeStyle='#ffb04a';g.lineWidth=4;g.fillStyle='#ffd9a0';[256,768].forEach(x=>{g.strokeText(n,x,320);g.font='500 30px monospace';g.fillText(name.toUpperCase(),x,400);g.font='italic 300 260px Georgia,serif'});const t=new THREE.CanvasTexture(c);t.anisotropy=4;return t}
+  const names=['Open Banking','DevKit','Cloud Manager','Edulastic'],slabs=names.map((n,i)=>{const t=tex('0'+(i+1),n),mat=new THREE.MeshStandardMaterial({map:t,emissive:0xff8a1f,emissiveMap:t,emissiveIntensity:.3,metalness:.6,roughness:.35,transparent:true}),core=new THREE.Mesh(new THREE.SphereGeometry(1.9,56,40),mat),wire=new THREE.Mesh(new THREE.SphereGeometry(2.08,22,14),new THREE.MeshBasicMaterial({color:0xffb04a,wireframe:true,transparent:true,opacity:.22})),ring=new THREE.Mesh(new THREE.TorusGeometry(2.9,.03,8,120),new THREE.MeshBasicMaterial({color:0xffd9a0,transparent:true})),sat=new THREE.Mesh(new THREE.SphereGeometry(.22,20,16),new THREE.MeshStandardMaterial({color:0xffd9a0,emissive:0xffa028,emissiveIntensity:1.2,transparent:true})),m=new THREE.Group();ring.rotation.x=Math.PI/2.4;ring.rotation.y=i*.7;ring.add(sat);m.add(core,wire,ring);sc.add(m);return{m,core,wire,ring,sat,mat,z:-16-10*i,s:i%2?-1:1}});
+
+  // Grid floor, dust, door
+  const grid=new THREE.GridHelper(140,70,0xffb04a,0x4a3418);grid.position.set(0,-4.2,-50);grid.material.transparent=true;grid.material.opacity=.3;sc.add(grid);
+  const N=1800,pos=new Float32Array(N*3);for(let i=0;i<N;i++){pos[i*3]=(Math.random()-.5)*30;pos[i*3+1]=(Math.random()-.5)*16;pos[i*3+2]=8-Math.random()*74}
+  const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));const dust=new THREE.Points(pg,new THREE.PointsMaterial({color:0xffc27a,size:.07,transparent:true,opacity:.8,depthWrite:false,blending:THREE.AdditiveBlending}));sc.add(dust);
+  const door=new THREE.Group();door.position.set(0,0,-60);sc.add(door);
+  door.add(new THREE.Mesh(new THREE.TorusGeometry(3.6,.14,16,100),new THREE.MeshStandardMaterial({color:0xffd9a0,emissive:0xffa028,emissiveIntensity:1.5})));
+  const gc=document.createElement('canvas');gc.width=gc.height=256;const gg=gc.getContext('2d'),rg=gg.createRadialGradient(128,128,0,128,128,128);rg.addColorStop(0,'rgba(255,230,180,1)');rg.addColorStop(.4,'rgba(255,176,74,.6)');rg.addColorStop(1,'rgba(255,176,74,0)');gg.fillStyle=rg;gg.fillRect(0,0,256,256);
+  const glow=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(gc),blending:THREE.AdditiveBlending,transparent:true,depthWrite:false,fog:false}));glow.scale.set(26,26,1);glow.position.z=-.5;door.add(glow);
+  
+  function fit(){R.setPixelRatio(Math.min(devicePixelRatio||1,1.75));R.setSize(innerWidth,innerHeight,false);cm.aspect=innerWidth/innerHeight;cm.fov=mob()?72:55;cm.updateProjectionMatrix();measure()}
+  fit();addEventListener('resize',fit);if(document.fonts)document.fonts.ready.then(measure);setTimeout(measure,800);
+  
+  let tcx=0,tcy=0;const bar=document.getElementById('bar');
+  function loop(ts){
+    if (document.body.classList.contains('lite-mode')) {
+      requestAnimationFrame(loop);
+      return;
+    }
+    const t=reduce?0:ts/1000;y+=(scrollY-y)*(reduce?1:.1);const z=camZ(y),sw=reduce?0:1;
+    tcx+=((mx*1.4+Math.sin(z*.09)*1.1*sw)-tcx)*.05;tcy+=((-my*.8)-tcy)*.05;cm.position.set(tcx,tcy,z);cm.lookAt(tcx*.4,tcy*.3,z-10);
+    if (bar) bar.style.transform='scaleX('+cl(y/(ys[ys.length-1]||1))+')';
+    const M=mob();core.position.set(M?0:3.3,M?2.5:.2,-8);core.scale.setScalar(M?.62:1);core.rotation.y=t*.25+y*.004;core.rotation.x=.35+y*.0006;
+    orbs.forEach(o=>{o.sp.rotation.y=t*(.5+o.i*.18)+o.i*1.7;o.m.rotation.x=t*.8;o.m.rotation.y=t*.6});
+    let best=-1,bd=4;slabs.forEach((s,i)=>{const d=Math.abs(z-(s.z+7));if(d<bd){bd=d;best=i}});
+    slabs.forEach((s,i)=>{const k=i===best?cl(1-bd/4):0,pa=(s.z+7)-z,f=Math.min(1-cl((y-ys[i+1]-innerHeight*.12)/(innerHeight*.45)),1-cl((-pa-1)/3.5));s.m.position.set(s.s*(M?1.5:3.6),Math.sin(t*.9+i)*.2+(M?1.7:0),s.z);s.core.rotation.y=t*.35+y*.002;s.wire.rotation.y=-t*.1;s.ring.rotation.z=t*.3;s.sat.position.set(Math.cos(t*.9+i)*2.9,Math.sin(t*.9+i)*2.9,0);
+     s.mat.emissiveIntensity+=(.3+k*.8-s.mat.emissiveIntensity)*.1;s.mat.opacity=f;s.wire.material.opacity=.22*f;s.ring.material.opacity=.7*f;s.sat.material.opacity=f;s.m.visible=f>.02;const q=1+k*.15;s.m.scale.setScalar(s.m.scale.x+(q-s.m.scale.x)*.1);if(pcs[i])pcs[i].style.opacity=cl(f*1.5)});
+    dust.rotation.y=t*.01;door.rotation.z=t*.2;glow.material.opacity=cl((z+30)/-20)*.9+.1;
+    R.render(sc,cm);requestAnimationFrame(loop)
+  }
+  requestAnimationFrame(loop)
+})();
+</script>
+</body>
+</html>
